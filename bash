@@ -1,7 +1,5 @@
 /site
     index.html
-    css/style.css
+    style.css
     <link rel="stylesheet" href="style.css">
-    /projects
-        
-    /img
+ 
