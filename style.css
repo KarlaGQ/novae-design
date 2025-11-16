@@ -1,34 +1,50 @@
+/* ============================
+   GLOBAL VARIABLES & RESET
+============================ */
 :root {
-  --accent: #007300;
+  --accent: #007300;     /* Green accent */
+  --accent-blue: #0078ff; /* Your project titles used blue — kept as optional */
   --bg: #f5f7fa;
   --card: #ffffff;
   --muted: #707070;
 }
 
 body {
-  margin:0;
+  margin: 0;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:#222;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
+  background: var(--bg);
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
 }
 
-/* === Page Layout === */
+/* ============================
+   HEADER
+============================ */
 header {
   text-align: center;
-  background:var(--accent);
-  color:#fff;
+  background: var(--accent);
+  color: #fff;
   padding: 3rem 1rem;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+.site-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.25rem;
+  margin: 0;
+  letter-spacing: 0.02em;
 }
 
-/* === Sections === */
+.site-sub {
+  margin-top: 0.5rem;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+/* ============================
+   SECTIONS
+============================ */
 section {
   max-width: 800px;
   margin: 2rem auto;
@@ -36,128 +52,46 @@ section {
 }
 
 h2 {
-  color: #0078ff;
+  color: var(--accent-blue);
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.nav{
-  display:flex;
-  justify-content:center;
-  gap:1.25rem;
-  margin-bottom:1.25rem;
-  flex-wrap:wrap;
+/* ============================
+   NAVIGATION (if used later)
+============================ */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.nav a{
-  color:rgba(255,255,255,0.95);
-  text-decoration:none;
-  font-weight:600;
-  letter-spacing:0.02em;
-}
-
-.site-title{
-  font-family:"Bebas Neue", sans-serif;
-  font-size:3.25rem;
-  line-height:1;
-  margin:0;
-  letter-spacing:0.02em;
-}
-   
-.site-sub{
-  margin-top:0.5rem;
-  font-weight:300;
-  opacity:0.95;
-}
-
-/* === Project Cards === */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:1rem;
-  align-items:start;
-}
-
-.card{
-      background:var(--card);
-      border-radius:12px;
-      padding:1.1rem;
-      box-shadow:0 6px 18px rgba(22,35,50,0.06);
-      display:flex;
-      flex-direction:column;
-      min-height:160px;
-      transition:transform .18s ease, box-shadow .18s ease;
-}
-
-.card:hover{ transform:translateY(-6px); box-shadow:0 16px 30px rgba(22,35,50,0.09); }
-
-.card h3{
-  margin:0 0 .45rem 0;
-  font-size:1.05rem;
-  color:#111;
-}
-
-.card p{
-  margin:0 0 .75rem 0;
-  color:var(--muted);
-  font-size:0.95rem;
-  flex:1;
-}
-
-.card a.cta{
-  align-self:flex-start;
-  padding:.45rem .65rem;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--accent);
-  background:transparent;
-  border:1px solid rgba(0,120,255,0.08);
-}
-
-    /* ====== More creations (smaller list) ====== */
-    .more{
-      margin-top:2.25rem;
-    }
-    .more-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:1rem;
-      justify-content:center;
-    }
-    .chip{
-      background:var(--card);
-      padding:.6rem .9rem;
-      border-radius:10px;
-      box-shadow:0 6px 12px rgba(22,35,50,0.04);
-      min-width:160px;
-      text-align:center;
-    }
-    .chip h4{ margin:0; font-size:0.95rem; }
-    .chip p{ margin:.35rem 0 0 0; color:var(--muted); font-size:0.85rem; }
-
-/* === Contact Section === */
-#contact ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-#contact li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-#contact a {
+.nav a {
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  color: #0078ff;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-/* === Footer === */
-footer {
-  text-align: center;
-  padding: 1rem;
-   background: #e5e5e5;
-  color: #333;
+/* ============================
+   PROJECT CARDS (GRID)
+============================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.1rem;
+  box-shadow: 0 6px 18px rgba(22, 35, 50, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
