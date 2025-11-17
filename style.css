@@ -74,6 +74,11 @@ h2 {
   letter-spacing: 0.02em;
 }
 
+ .nav a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
 /* ============================
    PROJECT CARDS (GRID)
 ============================ */

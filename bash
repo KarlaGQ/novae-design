@@ -1,6 +1,7 @@
 /site
     index.html
+    resume.pdf
     style.css
     <link rel="stylesheet" href="style.css">
     script.js
-    <script src="script.js"></script>
+    favicon.png
