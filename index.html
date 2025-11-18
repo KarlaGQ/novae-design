@@ -1,79 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Reveal + Horizontal Projects</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
+<style>
+/* ===== BASIC RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-</head>
+/* ============================
+   HERO SECTION — Peek through
+============================ */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: url("peek-image.png") center/cover no-repeat;
+  position: relative;
+}
 
-<body>
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  color: white;
+  animation: bounce 1.5s infinite;
+}
 
-  <!-- ===== HEADER ===== -->
-  <header class="top-header">
-    <nav class="nav-bar">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="resume.pdf" target="_blank">Resume</a></li>
-        <li><a href="#projects">Works</a></li>
-      </ul>
-    </nav>
+@keyframes bounce {
+  0%,100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
 
-    <h1 class="site-title">Karla Quintanar</h1>
-    <p class="site-sub">Web Developer and Designer</p>
-  </header>
+/* ============================
+   HORIZONTAL SCROLL SECTION
+============================ */
+.horizontal-wrapper {
+  height: 100vh;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  background: #f5f5f5;
+}
 
-  <!-- ===== ABOUT SECTION ===== -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Student with a focus in New Media Design who is passionate in building user-friendly websites for small businesses and entrepreneurs. 
-      I enjoy working with HTML, CSS, JavaScript, and exploring new web technologies.
-    </p>
-  </section>
+/* Individual project cards */
+.project-card {
+  min-width: 100vw;
+  height: 100vh;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
 
-  <!-- ===== PROJECTS SECTION ===== -->
- <section class="hero">
-  <h1>Your Name</h1>
-  <p>Web Developer & Designer</p>
-  <img src="peek-image.jpg" class="peek-img" alt="scroll indicator">
-</section>
+.project-card:nth-child(odd) {
+  background: white;
+}
 
-<section class="horizontal-scroll">
-  <div class="scroll-wrapper">
-    <div class="project-card">Project 1</div>
-    <div class="project-card">Project 2</div>
-    <div class="project-card">Project 3</div>
-    <div class="project-card">Project 4</div>
-  </div>
-</section>
-
-  <!-- ===== CONTACT SECTION ===== -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Let's connect!</p>
-    <ul>
-      <li><a href="mailto:kgquintanar@example.com">Email</a></li>
-      <li><a href="https://github.com/KarlaGQ" target="_blank">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/karlaquintanar" target="_blank">LinkedIn</a></li>
-    </ul>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>© <span id="year"></span> Karla Quintanar. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+.project-card:nth-child(even) {
+  background: #e8f5e
