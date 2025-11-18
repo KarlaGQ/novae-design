@@ -10,7 +10,7 @@ const elements = document.querySelectorAll(".fade");
 
 window.addEventListener("scroll", () => {
   elements.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 10) {
       el.classList.add("show");
     }
   });

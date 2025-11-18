@@ -1,11 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+
+  <!-- Your existing CSS + JS -->
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- Lucide Vue Icons CDN -->
+  <script src="https://unpkg.com/lucide-vue-next"></script>
+
   <title>Contact – Karla Quintanar</title>
+
+  <style>
+    /* ---- Inline styling for the form (safe to keep separate from style.css) ---- */
+
+    .contact-vue-card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      max-width: 480px;
+      margin: 20px auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-vue-card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .vue-input,
+    .vue-textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+
+    .vue-submit {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .vue-submit:hover {
+      background: #005fcc;
+    }
+
+    /* Popup */
+    .vue-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vue-popup-box {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 14px;
+      text-align: center;
+      animation: popup-appear 0.3s ease;
+      max-width: 320px;
+    }
+
+    @keyframes popup-appear {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
@@ -13,7 +95,7 @@
 <header class="top-header">
   <nav class="nav-bar">
     <ul>
-       <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="resume.html">Resume</a></li>
       <li><a href="works.html">Works</a></li>
     </ul>
@@ -23,13 +105,85 @@
 
 <section>
   <h2>Let's connect!</h2>
-  <p>Let's talk on how I can help grow your buisness.</p>
+  <p>Let's talk on how I can help grow your business.</p>
 </section>
 
-  <footer>
-    <p>© <span id="year"></span> Karla Quintanar.</p>
-  </footer>
+<!-- Your existing contact links -->
+<section id="contact" class="snap-section normal-section">
+  <h2>Contact</h2>
+  <ul>
+    <li><a href="mailto:kgquintanar@example.com">Email</a></li>
+    <li><a href="https://github.com/KarlaGQ" target="_blank">GitHub</a></li>
+    <li><a href="https://linkedin.com/in/karlaquintanar" target="_blank">LinkedIn</a></li>
+  </ul>
+</section>
 
-<script src="script.js"></script>
+<!-- NEW: Vue Contact Form -->
+<div id="vue-contact-form"></div>
+
+<footer>
+  <p>© <span id="year"></span> Karla Quintanar.</p>
+</footer>
+
+<!-- Vue Component Script -->
+<script>
+  const { createApp } = Vue;
+  const { Mail, User, MessageSquare, SendHorizontal, CheckCircle } = lucideVueNext;
+
+  const ContactForm = {
+    components: { Mail, User, MessageSquare, SendHorizontal, CheckCircle },
+    template: `
+      <div class="contact-vue-card">
+        <h2><Mail class="icon" /> Contact Me</h2>
+
+        <label><User /> Name</label>
+        <input class="vue-input" v-model="name" type="text" required>
+
+        <label><Mail /> Email</label>
+        <input class="vue-input" v-model="email" type="email" required>
+
+        <label><MessageSquare /> Message</label>
+        <textarea class="vue-textarea" v-model="message" rows="5" required></textarea>
+
+        <button class="vue-submit" @click="send">
+          <SendHorizontal /> Send Message
+        </button>
+      </div>
+
+      <div v-if="popup" class="vue-popup-overlay" @click="popup=false">
+        <div class="vue-popup-box">
+          <CheckCircle style="color:#2ecc71; width:50px; height:50px;" />
+          <h3>Message Sent!</h3>
+          <p>Thanks for contacting me. I'll get back to you soon.</p>
+        </div>
+      </div>
+    `,
+
+    data() {
+      return {
+        name: "",
+        email: "",
+        message: "",
+        popup: false
+      };
+    },
+
+    methods: {
+      send() {
+        if (!this.name || !this.email || !this.message) return;
+
+        this.popup = true;
+        this.name = "";
+        this.email = "";
+        this.message = "";
+
+        setTimeout(() => (this.popup = false), 2500);
+      }
+    }
+  };
+
+  createApp(ContactForm).mount("#vue-contact-form");
+</script>
+
 </body>
 </html>
