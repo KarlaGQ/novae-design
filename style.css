@@ -59,7 +59,7 @@ body {
   margin: 0 0 1.5rem 0;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .nav-bar a {
@@ -141,7 +141,7 @@ body {
 
 .project-card {
   scroll-snap-align: center;
-  background: white;
+  background: #707070;
   min-width: 80vw;
   height: 70vh;
   border-radius: 20px;
