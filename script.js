@@ -18,7 +18,7 @@ window.addEventListener("scroll", () => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-document.querySelector(".peek-img").addEventListener("click", () => {
+document.querySelector(".peek-image").addEventListener("click", () => {
   document.querySelector(".horizontal-scroll").scrollIntoView({
     behavior: "smooth"
   });
