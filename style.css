@@ -144,3 +144,61 @@ h2 {
     gap: 1rem;
   }
 }
+ /* ===== HERO WITH PEEKING IMAGE ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.peek-img {
+  width: 180px;
+  position: absolute;
+  bottom: -40px; /* makes it "peek" */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 2.5s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -8px); }
+}
+
+/* ===== HORIZONTAL SCROLL SECTION ===== */
+.horizontal-scroll {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-wrapper {
+  display: flex;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+.project-card {
+  min-width: 80vw;
+  height: 80%;
+  margin: auto 10px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  scroll-snap-align: center;
+}
