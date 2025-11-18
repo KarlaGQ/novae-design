@@ -4,39 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <!-- fonts -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
-  <body>
+
+<body>
+
   <!-- ===== HEADER ===== -->
-  <header>
-  <nav class="nav">
-    <a href="#about">About</a>
-    <a href="resume.pdf" target="_blank">Resume</a>
-    <a href="#projects">Works</a>
-  </nav>
+  <header class="top-header">
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="resume.pdf" target="_blank">Resume</a></li>
+        <li><a href="#projects">Works</a></li>
+      </ul>
+    </nav>
 
-  <h1 class="site-title">Karla Quintanar</h1>
-  <p class="site-sub">Web Developer and Designer</p>
-</header>
-
+    <h1 class="site-title">Karla Quintanar</h1>
+    <p class="site-sub">Web Developer and Designer</p>
+  </header>
 
   <!-- ===== ABOUT SECTION ===== -->
   <section id="about">
     <h2>About Me</h2>
     <p>
-    Student with a focus in New Media Design who is passionate in building user-friendly websites for small businesses and entrepreneurs. 
-    I enjoy working with HTML, CSS, JavaScript, and exploring new web technologies.
+      Student with a focus in New Media Design who is passionate in building user-friendly websites for small businesses and entrepreneurs. 
+      I enjoy working with HTML, CSS, JavaScript, and exploring new web technologies.
     </p>
   </section>
 
   <!-- ===== PROJECTS SECTION ===== -->
   <section id="projects">
     <h2>Projects</h2>
+
     <div class="project">
       <h3>🌐 Personal Website</h3>
       <p>A responsive site built with HTML, CSS, and JavaScript.</p>
@@ -45,9 +54,10 @@
 
     <div class="project">
       <h3>📱 Branding for JQ Sprinklers LLC</h3>
-      <p>Designed a branding package for a local buisness</p>
+      <p>Designed a branding package for a local business.</p>
       <a href="#">View Project</a>
     </div>
+
   </section>
 
   <!-- ===== CONTACT SECTION ===== -->
@@ -65,9 +75,7 @@
   <footer>
     <p>© <span id="year"></span> Karla Quintanar. All rights reserved.</p>
   </footer>
-  <section class="fade">
-   <!-- content here -->
-</section>
+
   <script src="script.js"></script>
 </body>
 </html>
