@@ -1,7 +1,11 @@
 /site
+    /pages
+      contact.html
+      resume.html
+      works.html
     index.html
-    resume.pdf
     style.css
-    <link rel="stylesheet" href="style.css">
     script.js
     favicon.png
+    resume.pdf
+    
